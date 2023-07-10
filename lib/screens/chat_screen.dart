@@ -1,8 +1,10 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../components/streamData.dart';
+
+late User loggedinUser;
 
 class ChatScreen extends StatefulWidget {
   static String id = '/chat';
@@ -14,8 +16,10 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  late User loggedinUser ;
+  
   String messageText = '';
+  var messageController = TextEditingController();
+
 
   void initState() {
     super.initState();
@@ -33,25 +37,26 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
-  void getMessages() async{
-    await for(var snapshot in _firestore.collection('messages').snapshots()){
-      for(var message in snapshot.docs){
-        print(message.data());
-      }
-    }
-  }
+  // void getMessages() async {
+  //   await for (var snapshot in _firestore.collection('messages').snapshots()) {
+  //     for (var message in snapshot.docs) {
+  //       print(message.data());
+  //     }
+  //   }
+  // }
 
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         leading: null,
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.close),
               onPressed: () {
-                getMessages();
-                // _auth.signOut();
-                // Navigator.pop(context);
+                // getMessages();
+                _auth.signOut();
+                Navigator.pop(context);
               }),
         ],
         title: Text('⚡️Chat'),
@@ -60,8 +65,9 @@ class _ChatScreenState extends State<ChatScreen> {
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            StreamDataWidget(firestore: _firestore, currentUser: loggedinUser,),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
@@ -69,19 +75,19 @@ class _ChatScreenState extends State<ChatScreen> {
                 children: <Widget>[
                   Expanded(
                     child: TextField(
+                      controller: messageController,
                       style: TextStyle(color: Colors.black),
                       onChanged: (value) {
                         messageText = value;
-                        },
+                      },
                       decoration: kMessageTextFieldDecoration,
                     ),
                   ),
                   TextButton(
                     onPressed: () {
-                      _firestore.collection('messages').add({
-                        'text' : messageText,
-                        'sender' : loggedinUser.email
-                      });
+                      _firestore.collection('messages').add(
+                          {'text': messageText, 'sender': loggedinUser.email, 'timestamp': FieldValue.serverTimestamp(),});
+                      messageController.clear();
                     },
                     child: Text(
                       'Send',
@@ -97,3 +103,4 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 }
+
