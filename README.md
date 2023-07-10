@@ -1,16 +1,11 @@
-# flash_chat
+# Chatting Application using Flutter
 
-A new Flutter project.
+![1](https://github.com/Nayni19/Chatting-App/assets/83155646/bbbf4fa7-7dc6-426b-9224-de8f19bfc2cc)
 
-## Getting Started
+![2](https://github.com/Nayni19/Chatting-App/assets/83155646/ea50a8a8-16a6-4122-b685-8b930ccaa8e5)
 
-This project is a starting point for a Flutter application.
+![3](https://github.com/Nayni19/Chatting-App/assets/83155646/d633d4a0-a2ec-4807-881b-41c31c5229ba)
 
-A few resources to get you started if this is your first Flutter project:
+![4](https://github.com/Nayni19/Chatting-App/assets/83155646/e30b78ff-a6f3-44f9-bc3e-a938dfa310c2)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![5](https://github.com/Nayni19/Chatting-App/assets/83155646/bc34e5e3-c167-4fbd-bfb4-2c79fa3c0367)
