@@ -5,9 +5,11 @@ class CustomTextField extends StatelessWidget {
   final String hintTextVal;
   final Color colorVal;
   final Function onChangeHandler;
+  final TextInputType keyboard;
+  final bool obscure;
   
   const CustomTextField({
-    Key? key, required this.hintTextVal, required this.colorVal, required this.onChangeHandler,
+    Key? key, required this.hintTextVal, required this.colorVal, required this.onChangeHandler, required this.keyboard, required this.obscure,
   }) : super(key: key);
 
   @override
@@ -18,6 +20,8 @@ class CustomTextField extends StatelessWidget {
       },
       style: TextStyle(color: Colors.black),
       textAlign: TextAlign.center,
+      keyboardType: keyboard,
+      obscureText: obscure,
       decoration: InputDecoration(
         hintText: hintTextVal,
         hintStyle: TextStyle(color: Colors.grey),
