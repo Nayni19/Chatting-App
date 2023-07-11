@@ -3,8 +3,6 @@ import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import '../components/customTextfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'chat_screen.dart';
 import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
 
 class LoginScreen extends StatefulWidget {

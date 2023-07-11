@@ -4,9 +4,6 @@ import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
 import '../components/customButton.dart';
 import '../components/customTextfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-// import 'chat_screen.dart';
-// import 'package:firebase_core/firebase_core.dart';
-import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static String id = '/register';

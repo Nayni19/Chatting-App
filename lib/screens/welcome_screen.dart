@@ -2,7 +2,6 @@ import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:marquee/marquee.dart';
 import '../components/customButton.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -39,7 +38,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // bottomNavigationBar: SizedBox(child: _marquee(), height: 50,),
         backgroundColor: colorChange.value,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -78,22 +76,5 @@ class _WelcomeScreenState extends State<WelcomeScreen>
         ),
       ),
     );
-  }
-
-  Marquee _marquee() {
-    return Marquee(
-              text: 'Some sample text that takes some space.',
-              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey, fontSize: 20.0),
-              scrollAxis: Axis.horizontal,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              blankSpace: 20.0,
-              velocity: 100.0,
-              // pauseAfterRound: Duration(seconds: 1),
-              startPadding: 10.0,
-              // accelerationDuration: Duration(seconds: 1),
-              // accelerationCurve: Curves.linear,
-              // decelerationDuration: Duration(milliseconds: 500),
-              // decelerationCurve: Curves.easeOut,      
-            );
   }
 }
